@@ -1,5 +1,5 @@
 import { useLoaderData } from "remix";
-import { LoaderFunction } from "remix";
+// import { LoaderFunction } from "remix";
 
 export async function loader() {
   let res = await fetch("https://api.github.com/gists");
