@@ -1,4 +1,24 @@
+import { useLoaderData } from "remix";
+import { LoaderFunction } from "remix";
+
+export async function loader() {
+  let res = await fetch("https://api.github.com/gists");
+  return res.json();
+}
+
+
 export default function Index() {
+
+  let gists = useLoaderData();
+  // return (
+  //   <ul>
+  //     {gists.map(gist => (
+  //       <li>
+  //         <a href={gist.html_url}>{gist.id}</a>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // );
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
@@ -26,6 +46,13 @@ export default function Index() {
             Remix Docs
           </a>
         </li>
+      </ul>
+      <ul>
+        {gists.map(gist => (
+          <li>
+            <a href={gist.html_url}>{gist.id}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
