@@ -48,11 +48,7 @@ export default function Index() {
         </li>
       </ul>
       <ul>
-        {gists.map(gist => (
-          <li>
-            <a href={gist.html_url}>{gist.id}</a>
-          </li>
-        ))}
+        {gists}
       </ul>
     </div>
   );
